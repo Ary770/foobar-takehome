@@ -7,12 +7,24 @@ defmodule FoobarWeb.PageController do
 
   def fizzbuzz(conn, params) do
     response = cond do
-       params["foo"] == "true" && params["bar"] == "true" -> "fooBar"
-       params["foo"] == "true" -> "foo"
-       params["bar"] == "true" -> "bar"
+       params["foo"] == "true" && params["bar"] == "true" -> fooBarFunction()
+       params["foo"] == "true" -> fooFunction()
+       params["bar"] == "true" -> barFunction()
     end
 
     json(conn, %{message: response})
+  end
+
+  def fooFunction() do
+    "foo"
+  end
+
+  def barFunction() do
+    "bar"
+  end
+
+  def fooBarFunction() do
+    "fooBar"
   end
 
 end
